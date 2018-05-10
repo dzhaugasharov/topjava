@@ -1,0 +1,59 @@
+Index: src/test/java/ru/javawebinar/topjava/service/MealServiceTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/ru/javawebinar/topjava/service/MealServiceTest.java	(revision 4eac03438dc4ce64a2d923ddf9fef6ce9d0e0082)
++++ src/test/java/ru/javawebinar/topjava/service/MealServiceTest.java	(date 1522147141228)
+@@ -45,7 +45,7 @@
+     }
+ 
+     @Test
+-    public void save() throws Exception {
++    public void create() throws Exception {
+         Meal created = getCreated();
+         service.create(created, USER_ID);
+         assertMatch(service.getAll(USER_ID), created, MEAL6, MEAL5, MEAL4, MEAL3, MEAL2, MEAL1);
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(revision 4eac03438dc4ce64a2d923ddf9fef6ce9d0e0082)
++++ pom.xml	(date 1522147362164)
+@@ -28,7 +28,7 @@
+         <junit.version>4.12</junit.version>
+ 
+         <!-- Hibernate -->
+-        <hibernate.version>5.2.15.Final</hibernate.version>
++        <hibernate.version>5.2.16.Final</hibernate.version>
+         <hibernate-validator.version>6.0.8.Final</hibernate-validator.version>
+         <javax-el.version>3.0.1-b10</javax-el.version>
+     </properties>
+@@ -66,13 +66,6 @@
+             <scope>compile</scope>
+         </dependency>
+ 
+-        <dependency>
+-            <groupId>org.slf4j</groupId>
+-            <artifactId>jcl-over-slf4j</artifactId>
+-            <version>${slf4j.version}</version>
+-            <scope>runtime</scope>
+-        </dependency>
+-
+         <dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>jul-to-slf4j</artifactId>
+@@ -92,12 +85,6 @@
+             <groupId>org.springframework</groupId>
+             <artifactId>spring-context</artifactId>
+             <version>${spring.version}</version>
+-            <exclusions>
+-                <exclusion>
+-                    <groupId>commons-logging</groupId>
+-                    <artifactId>commons-logging</artifactId>
+-                </exclusion>
+-            </exclusions>
+         </dependency>
+         <dependency>
+             <groupId>org.springframework</groupId>
